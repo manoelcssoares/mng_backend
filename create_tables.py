@@ -1,7 +1,7 @@
 # Exemplo de create_tables.py
 
 from app.db import get_db_connection
-from app.models import Tbl_Emp, Tbl_User
+from app.models import Tbl_Supplier, Tbl_User
 from mysql.connector import Error
 
 def create_tables():
@@ -9,9 +9,8 @@ def create_tables():
     if conn is not None:
         try:
             cursor = conn.cursor()
-            cursor.execute(Tbl_Emp.create_table_query)
-            cursor.execute(Tbl_User.create_table_query)
-            # Adicione mais comandos 'execute' para outras tabelas
+            cursor.execute(Tbl_Supplier.create_tbl_supplier)
+            cursor.execute(Tbl_User.create_tbl_user)
             conn.commit()
             print("Tabelas criadas com sucesso.")
         except Error as e:
